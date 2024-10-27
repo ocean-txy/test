@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>计算器</h2>
+    <input type="text" id="num1" placeholder="输入一个数字">
+    <input type="text" id="num2" placeholder="输入一个数字">
+    <button type="button" onclick="processForm()">计算</button>
+</body>
+</html>
+<script>
+    function processForm(){
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num1').value;      
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("请输入有效的数字");
+        }
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+        let sum = num1 + num2;
+        alert("结果为：" + sum);
+
+    }
+</script>
