@@ -1,0 +1,51 @@
+<form>
+  <label for="age">请输入你的年龄:</label>
+  <input type="number" id="age" name="age" value="age">
+  <br>
+  <!-- <label for="maritalStatus">婚姻状况:</label>
+  <input type="checkbox" id="maritalStatus" name="maritalStatus">
+  <br> -->
+  <label>性别：</label>
+  <input type="radio" id="gender" name="gender" value="male">
+  <label for="male">男</label>
+  <input type="radio" id="gender" name="gender" value="female">
+  <label for="female">女</label>
+  <button type="button" onclick="processForm()">提交</button>
+</form>
+<p id="message"></p>
+<p id="greetingMessage"></p>
+<script>
+let people = []; // 初始化一个存储人类对象的数组
+
+function processForm() {
+  let gender = document.getElementById('gender').value;
+  let age = parseInt(document.getElementById('age').value);
+
+  // 创建一个人类对象
+  let person = {
+    gender: gender,
+    age: age,
+    greet: function() {
+      let greeting = '';
+      if (this.gender === 'male') {
+        greeting = (this.age >= 20) ? '小伙子，谢谢你的提交！' : '小兄弟，谢谢你的提交！';
+      } else if (this.gender === 'female') {
+        greeting = (this.age >= 20) ? '女士，谢谢你的提交！' : '小姑娘，谢谢你的提交！';
+      } else {
+        greeting = '谢谢你的提交！';
+      }
+      return greeting;
+    }
+  };
+
+  // 将人类对象存入数组
+  people.push(person);
+
+  // 显示当前人类的问候信息
+  document.getElementById('greetingMessage').innerText = person.greet();
+
+  // 输出当前提交的人类信息
+  console.log(people);
+}
+
+</script>
